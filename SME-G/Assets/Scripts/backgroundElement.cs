@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class backgroundElement : MonoBehaviour {
-
+    public float rotationSpeed = 10;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +11,6 @@ public class backgroundElement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(0, 0, 20 * Time.deltaTime);
+        transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
 }
