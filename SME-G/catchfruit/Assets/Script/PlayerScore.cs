@@ -32,7 +32,7 @@ public class PlayerScore : MonoBehaviour
         }
     }
     IEnumerator ReStartGame() {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(0.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
 
