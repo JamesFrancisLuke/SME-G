@@ -27,9 +27,15 @@ public class Timer : MonoBehaviour
         TimerText.text = Mathf.Round(timeStart).ToString();
 
         if (timeStart <= 0){
-            // display end of game menu
+            // restarts game 
+            //CHANGE TO: displayEndOfGameMenu()
+            StartCoroutine(ReStartGame());
         }
 	}
+    IEnumerator ReStartGame() {
+        yield return new WaitForSecondsRealtime(0.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
 
 
