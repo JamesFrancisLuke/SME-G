@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class Rules : MonoBehaviour
 {
+    // array to store rules to selected game 
     string[] gameRules = new string[5];
+
+    // formatted string of rules to display
+    string formattedRules ="";
 
     int game=1; //Change to get selected game
     // Game 1 = Catch the Fruit
@@ -15,23 +20,21 @@ public class Rules : MonoBehaviour
     // Game 4 = Dodge
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         getRules();   
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void displayRules(){
         // get game object
         Text rulesList = GameObject.Find("RulesText").GetComponent<Text>();
 
+        // Create string of rules.
+        for (int i=0; i<gameRules.Length; i++){
+            // adds new line and extra line
+            formattedRules += (gameRules[i] + Environment.NewLine + Environment.NewLine);
+        }
         // set text
-        rulesList.text= gameRules[0];
+        rulesList.text= formattedRules;
     }
 
     void getRules(){
@@ -51,8 +54,6 @@ public class Rules : MonoBehaviour
         }else if(game==4){
             gameRules= rulesDodge;
         }
-
-        displayRules();    
+        displayRules();
     }
-
 }
