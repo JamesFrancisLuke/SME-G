@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerCar : MonoBehaviour
 {
@@ -8,6 +10,10 @@ public class playerCar : MonoBehaviour
     [SerializeField] float turnSpeed = 5;
     Quaternion targetRotation;
     Rigidbody _rigidBody;
+    Boolean finished = false;
+
+    public float timer = 0;
+    [SerializeField] Text outputTime;
 
     void Start()
     {
@@ -16,7 +22,12 @@ public class playerCar : MonoBehaviour
     void Update()
     {
         SetRotationPoint();
-        
+
+        if (finished != true)
+        {
+            timer += Time.deltaTime;
+            outputTime.text = "" + Math.Round(timer * 100) / 100;
+        }
     }
 
     private void SetRotationPoint()
@@ -39,5 +50,15 @@ public class playerCar : MonoBehaviour
         float accelerationInput = acceleration * (Input.GetMouseButton(0) ? 1 : Input.GetMouseButton(1) ? -1 : 0) * Time.fixedDeltaTime;
         _rigidBody.AddRelativeForce(Vector3.forward * accelerationInput);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collision Detected");
+        if (other.gameObject.tag == "endGame")
+        {
+            Debug.Log("Finish Line");
+            finished = true;
+        }
     }
 }
