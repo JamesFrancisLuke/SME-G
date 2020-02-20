@@ -13,15 +13,9 @@ public class Rules : MonoBehaviour
     // formatted string of rules to display
     string formattedRules ="";
 
-    int game=1; //Change to get selected game
-    // Game 1 = Catch the Fruit
-    // Game 2 = Racing
-    // Game 3 = Balancing
-    // Game 4 = Dodge
-
     // Start is called before the first frame update
     void Start(){
-        getRules();   
+        getGame();  
     }
 
     void displayRules(){
@@ -37,7 +31,7 @@ public class Rules : MonoBehaviour
         rulesList.text= formattedRules;
     }
 
-    void getRules(){
+    void getRules(string game){
         //all rules
         string[] rulesCatchFruit = new string[] {"1. Use arrow keys/ A or D to move the avatar left or right.", "2. Use the avatar to collect the fruit and gain a point.","3. Collect as many fruit as you can before the time runs out.", "4. Avoid the BOMB!"};
         string[] rulesRacing = new string[] {"2"};
@@ -45,15 +39,29 @@ public class Rules : MonoBehaviour
         string[] rulesDodge = new string[] {"4"};
 
         // get rules for selected game 
-        if (game==1){
+        if (game=="1"){
             gameRules= rulesCatchFruit;
-        }else if(game==2){
+        }else if(game=="2"){
             gameRules= rulesRacing;
-        }else if(game==3){
+        }else if(game=="3"){
             gameRules= rulesBalancing;
-        }else if(game==4){
+        }else if(game=="4"){
             gameRules= rulesDodge;
         }
         displayRules();
+    }
+
+    void getGame(){
+        // Game 1 = Catch the Fruit
+        // Game 2 = Racing
+        // Game 3 = Balancing
+        // Game 4 = Dodge
+
+        // get selected game from player preferences
+        string selectedGame = PlayerPrefs.GetString("selectedGame", "1"); //get the game. If NULL selected Catch the fruit by default
+
+        Debug.Log("game index: " + selectedGame);
+
+        getRules(selectedGame); 
     }
 }
