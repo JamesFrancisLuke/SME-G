@@ -1,13 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ballcontrol : MonoBehaviour
 {
     Transform cam;
     Rigidbody rigid;
     Vector3 force;
-  public float power;
+    public float power;
+
+    Boolean finished = false;
+    public float timer = 0;
+    [SerializeField] Text outputTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +37,26 @@ public class ballcontrol : MonoBehaviour
         Vector3 right = Quaternion.Euler(0, 90, 0) * forward;
         force = forward * v + right * h;
 
-    
 
+        if (finished != true)
+        {
+            timer += Time.deltaTime;
+            outputTime.text = "" + Math.Round(timer * 100) / 100;
+        }
     }
     private void FixedUpdate()
     {
         rigid.AddForce(force*power);
     }
-    
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collision Detected");
+        if (other.gameObject.tag == "endGame")
+        {
+            Debug.Log("Finish Line");
+            finished = true;
+        }
+    }
+
 }
