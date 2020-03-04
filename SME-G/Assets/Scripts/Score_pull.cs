@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         getScore();
     }
@@ -20,6 +20,6 @@ public class NewBehaviourScript : MonoBehaviour
     	string player_score = PlayerPrefs.GetString("playerScore");
     	Debug.Log("Score=" + player_score);
     	Score.text = player_score;
-    }
+    }*/
 
 }

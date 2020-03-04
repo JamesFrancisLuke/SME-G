@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ballcontrol : MonoBehaviour
 {
@@ -56,6 +57,11 @@ public class ballcontrol : MonoBehaviour
         {
             Debug.Log("Finish Line");
             finished = true;
+        }
+
+        if (other.gameObject.tag == "hitbox")
+        {
+            SceneManager.LoadScene(3);
         }
     }
 
