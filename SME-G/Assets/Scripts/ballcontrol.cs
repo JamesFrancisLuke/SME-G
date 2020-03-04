@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ballcontrol : MonoBehaviour
 {
@@ -56,6 +57,8 @@ public class ballcontrol : MonoBehaviour
         {
             Debug.Log("Finish Line");
             finished = true;
+            PlayerPrefs.SetString("balancingScore", timer.ToString());
+            SceneManager.LoadScene(6);
         }
     }
 

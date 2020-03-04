@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScore : MonoBehaviour
 {
-    private Text ScoreText;
-    private int score = 0;
+    Text ScoreText;
+    public int score = 0;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         ScoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         ScoreText.text = "0";
@@ -22,13 +22,14 @@ public class PlayerScore : MonoBehaviour
         if (t.tag == "Bomb") {
             transform.position = new Vector2(0,100);
             t.gameObject.SetActive(false);
+            
             StartCoroutine(ReStartGame());
         }
         if (t.tag == "Fruit") {
             t.gameObject.SetActive(false);
             score++;
             ScoreText.text = score.ToString();
-
+            PlayerPrefs.SetString("fruitScore", score.ToString());
         }
     }
     IEnumerator ReStartGame() {

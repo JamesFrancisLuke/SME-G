@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CatchFruit/Scenes/fruitScene.unity
     guid: 2ca3a5eb9368874498fe83544400bfa4
+  - enabled: 1
+    path: Assets/Scenes/End_Scene.unity
+    guid: 22e5378a0d5413948947dad0c75fa1bc
   m_configObjects: {}

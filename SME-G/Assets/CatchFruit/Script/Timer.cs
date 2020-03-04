@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 // Annabel
 public class Timer : MonoBehaviour
 {
-    public float timeStart = 60;
+    public float timeStart = 20;
     public Text TimerText;
 
     void Awake()
@@ -29,13 +30,20 @@ public class Timer : MonoBehaviour
         timeStart -= Time.deltaTime;
         TimerText.text = Mathf.Round(timeStart).ToString();
 
+        // end game
         if (timeStart <= 0)
         {
-            // restarts game 
-            //CHANGE TO: displayEndOfGameMenu()
-            StartCoroutine(ReStartGame());
+            endGameMenu();
         }
     }
+    void endGameMenu(){
+        
+
+        // load end of game menu 
+            SceneManager.LoadScene(6);
+    }
+
+
     IEnumerator ReStartGame()
     {
         yield return new WaitForSecondsRealtime(0.5f);
