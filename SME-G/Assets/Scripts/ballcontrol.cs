@@ -57,6 +57,8 @@ public class ballcontrol : MonoBehaviour
         {
             Debug.Log("Finish Line");
             finished = true;
+            PlayerPrefs.SetString("balancingScore", timer.ToString());
+            SceneManager.LoadScene(6);
         }
 
         if (other.gameObject.tag == "hitbox")
