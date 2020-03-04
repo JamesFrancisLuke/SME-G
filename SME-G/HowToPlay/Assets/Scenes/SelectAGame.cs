@@ -13,7 +13,7 @@ public class SelectAGame : MonoBehaviour
     public Button dodge;
 
     // game numbers 
-    string fruitGame="1", racingGame="2", balancingGame="3", dodgeGame="4";
+    string fruitGame="1", racingGame="2", balancingGame="3";
 
     // Start is called before the first frame update
     void Start(){
@@ -27,8 +27,7 @@ public class SelectAGame : MonoBehaviour
         // set text
         GameObject.Find("CatchFruitButton").GetComponentInChildren<Text>().text = "Catch the Fruit";
         GameObject.Find("RacingButton").GetComponentInChildren<Text>().text = "Racing";
-        GameObject.Find("BalancingButton").GetComponentInChildren<Text>().text = "Balance the Block";
-        GameObject.Find("DodgeButton").GetComponentInChildren<Text>().text = "Dodge the Dog";
+        GameObject.Find("BalancingButton").GetComponentInChildren<Text>().text = "Balance the Ball";
 
         // add event listener to buttons
         fruit = GameObject.Find("CatchFruitButton").GetComponentInChildren<Button>();
@@ -39,9 +38,6 @@ public class SelectAGame : MonoBehaviour
         
         balancing = GameObject.Find("BalancingButton").GetComponentInChildren<Button>();
 		balancing.onClick.AddListener(()=> switchScenes(balancingGame)); 
-        
-        dodge = GameObject.Find("DodgeButton").GetComponentInChildren<Button>();
-		dodge.onClick.AddListener(()=> switchScenes(dodgeGame));
     }
 
     void switchScenes(string game){
@@ -62,13 +58,7 @@ public class SelectAGame : MonoBehaviour
                 break;
             case "3":
                 PlayerPrefs.SetString("selectedGame", balancingGame);
-
                 Debug.Log("Game selected: Balancing");
-                SceneManager.LoadScene(1);
-                break;
-            case "4":
-                PlayerPrefs.SetString("selectedGame", dodgeGame);
-                Debug.Log("Game selected: Dodge");
                 SceneManager.LoadScene(1);
                 break;
         }

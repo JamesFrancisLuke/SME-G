@@ -34,9 +34,8 @@ public class Rules : MonoBehaviour
     void getRules(string game){
         //all rules
         string[] rulesCatchFruit = new string[] {"1. Use arrow keys/ A or D to move the avatar left or right.", "2. Use the avatar to collect the fruit and gain a point.","3. Collect as many fruit as you can before the time runs out.", "4. Avoid the BOMB!"};
-        string[] rulesRacing = new string[] {"2"};
-        string[] rulesBalancing = new string[] {"3"};
-        string[] rulesDodge = new string[] {"4"};
+        string[] rulesRacing = new string[] {"1. Move your mouse to rotate the vehicle.", "2. Left click your mouse to speed up.", "3. Right click your mouse to reverse.", "4. Race around the course and watch your time.", "5. Try again to beat your score!"};
+        string[] rulesBalancing = new string[] {"1. Use WASD or the Arrows to control the ball.", "2. Try not to fall off the edge.", "3. Reach the end whilst watching your time.", "4.Check for alternative and faster routes. ", "5. Try again to beat your score!"};
 
         // get rules for selected game 
         if (game=="1"){
@@ -45,8 +44,6 @@ public class Rules : MonoBehaviour
             gameRules= rulesRacing;
         }else if(game=="3"){
             gameRules= rulesBalancing;
-        }else if(game=="4"){
-            gameRules= rulesDodge;
         }
         displayRules();
     }
