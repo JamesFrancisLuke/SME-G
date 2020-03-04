@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/menuScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/SelectAGame.unity
+    guid: 9381a6e4f5d1444b891b95ba5a0deae8
+  - enabled: 1
+    path: Assets/Scenes/balanceScene.unity
+    guid: 446aa467b2574894da9ae5ac1e457810
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: 600426a987d544fb3b059bcef2ba902e
+  - enabled: 1
+    path: Assets/Scenes/racingScene.unity
+    guid: 5ec125b6701c1d74a806876a8b12bca2
+  - enabled: 1
+    path: Assets/CatchFruit/Scenes/fruitScene.unity
+    guid: 2ca3a5eb9368874498fe83544400bfa4
   m_configObjects: {}
